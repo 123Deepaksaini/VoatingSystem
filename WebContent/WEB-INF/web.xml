@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <display-name>VoatingSystem</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>Password</servlet-name>
+        <servlet-class>Password</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Password</servlet-name>
+        <url-pattern>/Password</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>Register</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Vote</servlet-name>
+        <servlet-class>Vote</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Vote</servlet-name>
+        <url-pattern>/Vote</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminLogin</servlet-name>
+        <servlet-class>AdminLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminLogin</servlet-name>
+        <url-pattern>/AdminLogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Thanks</servlet-name>
+        <servlet-class>Thanks</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Thanks</servlet-name>
+        <url-pattern>/Thanks</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OtpVerify</servlet-name>
+        <servlet-class>OtpVerify</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OtpVerify</servlet-name>
+        <url-pattern>/OtpVerify</url-pattern>
+    </servlet-mapping>
+
+</web-app>
