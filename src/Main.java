@@ -20,18 +20,20 @@ public class Main {
         tomcat.setPort(port);
         tomcat.getConnector();
         
-        // Extract WAR if WAR_PATH is set
+        // Default to source webapp directory.
+        File webappDir = new File("WebContent");
+
+        // Extract WAR if WAR_PATH is set.
         String warPath = System.getenv("WAR_PATH");
-        File webappDir = new File("target/webapp");
         
         if (warPath != null && new File(warPath).exists()) {
-            // Extract WAR file
+            // Extract WAR file.
             File warFile = new File(warPath);
             webappDir = new File("target/extracted");
             extractWar(warFile, webappDir);
         }
         
-        Context ctx = tomcat.addWebapp("/", new File("WebContent").getAbsolutePath());
+        Context ctx = tomcat.addWebapp("/", webappDir.getAbsolutePath());
         
         tomcat.start();
         System.out.println("Server started on port " + port);

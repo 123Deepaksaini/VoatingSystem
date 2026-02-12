@@ -1,0 +1,8 @@
+.git
+.gitignore
+.settings
+bin
+target
+*.log
+*.tmp
+*.iml

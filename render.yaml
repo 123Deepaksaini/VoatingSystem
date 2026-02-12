@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: voting-system
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MYSQLHOST
+        sync: false
+      - key: MYSQLPORT
+        value: "4000"
+      - key: MYSQLDATABASE
+        value: voting_system
+      - key: MYSQL_SSL_MODE
+        value: REQUIRED
+      - key: MYSQLUSER
+        sync: false
+      - key: MYSQLPASSWORD
+        sync: false
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_FROM_NUMBER
+        sync: false

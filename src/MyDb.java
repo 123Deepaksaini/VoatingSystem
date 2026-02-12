@@ -16,9 +16,13 @@ public class MyDb {
             String user = System.getenv("MYSQLUSER");
             String password = System.getenv("MYSQLPASSWORD");
             String port = System.getenv("MYSQLPORT");
+            String sslMode = System.getenv("MYSQL_SSL_MODE");
+            if (sslMode == null || sslMode.trim().isEmpty()) {
+                sslMode = "REQUIRED";
+            }
             
             String url = "jdbc:mysql://" + host + ":" + port + "/" + dbName 
-                       + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+                       + "?sslMode=" + sslMode + "&allowPublicKeyRetrieval=true&serverTimezone=UTC";
             
             con = DriverManager.getConnection(url, user, password);
             
