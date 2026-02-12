@@ -4,6 +4,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
+<%@page import="MyDb"%>
 <html>
 <head>
 <body style="background-image:url(images/flag.jpg)"/>
@@ -19,19 +20,12 @@ img {
    String s1 = (String)session.getAttribute("adminname");
    
     Map<String, Integer> counts = new HashMap<String, Integer>();
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    String host = System.getenv("MYSQLHOST");
-    String dbName = System.getenv("MYSQLDATABASE");
-    String user = System.getenv("MYSQLUSER");
-    String password = System.getenv("MYSQLPASSWORD");
-    String port = System.getenv("MYSQLPORT");
-    String sslMode = System.getenv("MYSQL_SSL_MODE");
-    if (sslMode == null || sslMode.trim().isEmpty()) {
-        sslMode = "REQUIRED";
+    MyDb db = new MyDb();
+    Connection con = db.getCon();
+    if (con == null) {
+        out.println("<h3 style='color:white;'>Database connection failed. Check Render environment variables.</h3>");
+        return;
     }
-    String url = "jdbc:mysql://" + host + ":" + port + "/" + dbName
-               + "?sslMode=" + sslMode + "&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-    Connection con = DriverManager.getConnection(url, user, password);
     Statement stmt = con.createStatement();
     ResultSet rs = stmt.executeQuery("select partie,count(partie) as c from vote group by partie");
     while(rs.next()){
