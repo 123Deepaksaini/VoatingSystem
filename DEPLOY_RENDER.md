@@ -22,6 +22,7 @@ If `SOURCE` is not available, copy/paste the SQL manually in your MySQL client.
 - `MYSQLUSER=<your-db-user>`
 - `MYSQLPASSWORD=<your-mysql-password>`
 - `MYSQL_SSL_MODE=REQUIRED`
+- `ADMIN_DEFAULT_PASSWORD=<set-strong-password>`
 - `TWILIO_ACCOUNT_SID=<optional>`
 - `TWILIO_AUTH_TOKEN=<optional>`
 - `TWILIO_FROM_NUMBER=<optional>`

@@ -20,6 +20,8 @@ public class Main {
         tomcat.setPort(port);
         tomcat.getConnector();
         
+        SchemaBootstrap.initialize();
+        
         // Default to source webapp directory.
         File webappDir = new File("WebContent");
 
